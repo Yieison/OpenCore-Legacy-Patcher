@@ -76,7 +76,10 @@ class DownloadFrame(wx.Frame):
             if percentage == 0:
                 percentage = 1
 
-            if percentage == -1:
+            retry_attempt = self.download_obj.retry_attempt
+            if retry_attempt:
+                amount_str = f"Connection lost, reconnecting ({retry_attempt}/{network_handler.DOWNLOAD_MAX_RETRIES})..."
+            elif percentage == -1:
                 amount_str = f"{utilities.human_fmt(self.download_obj.downloaded_file_size)} downloaded ({utilities.human_fmt(self.download_obj.get_speed())}/s)"
                 progress_bar.Pulse()
             else:
