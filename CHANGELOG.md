@@ -7,6 +7,10 @@
 - Restore support for FileVault 2 on macOS 26
 - Add USB mappings for macOS 26
 - Adopt Liquid Glass-conformant app icon
+- Increase resiliency of the internal downloader
+  - Resume interrupted downloads instead of restarting them
+  - Retry transient network and server errors
+  - Report server errors instead of saving them as the downloaded file
 - Increment Binaries:
   - OpenCorePkg 1.0.5 - release
 
